@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
-    <link href="/style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -20,7 +20,7 @@
             },
             colors: {
               sosaria: "#B48446",
-              gold: "#090909",
+              gold: "#FFD700",
               darkBg: "#0A0A0A",
             },
           },
@@ -28,16 +28,6 @@
       };
     </script>
     <style type="text/css">
-      .header-bg {
-        background-image: url("/images/header-bg.png");
-        background-size: cover;
-        background-color: #1a1a1a;
-      }
-      .nav-bg {
-        background-image: url("/images/nav-bg.png");
-        background-color: #111;
-      }
-
       /* Dark Glowing Text Effect */
       .glowing-text {
         color: #b48446;
@@ -46,15 +36,176 @@
           0 0 15px rgba(180, 132, 70, 0.6),
           0 0 30px rgba(0, 0, 0, 0.9);
         letter-spacing: 0.1em;
+        animation: glow 3s ease-in-out infinite;
       }
 
-      /* Active Link Style */
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow:
+            0 0 5px rgba(0, 0, 0, 1),
+            0 0 15px rgba(180, 132, 70, 0.6),
+            0 0 30px rgba(0, 0, 0, 0.9);
+        }
+        50% {
+          text-shadow:
+            0 0 10px rgba(0, 0, 0, 1),
+            0 0 25px rgba(180, 132, 70, 0.8),
+            0 0 40px rgba(180, 132, 70, 0.6);
+        }
+      }
+
+      /* Fade in animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .animate-fadeInDown {
+        animation: fadeInDown 0.8s ease-out forwards;
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .animate-scaleIn {
+        animation: scaleIn 0.8s ease-out forwards;
+      }
+
+      .animate-slideInLeft {
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+
+      .animate-slideInRight {
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Delay classes */
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+      .delay-700 {
+        animation-delay: 0.7s;
+      }
+      .delay-800 {
+        animation-delay: 0.8s;
+      }
+
+      /* Initially hidden for animation */
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      /* Active Link Style - IMPROVED */
       .nav-link-active {
         color: #ffd700 !important;
-        border: 1px solid rgba(255, 215, 0, 0.4);
-        background: rgba(255, 215, 0, 0.08);
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        border: 1px solid rgba(255, 215, 0, 0.5) !important;
+        background: rgba(255, 215, 0, 0.1) !important;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3) !important;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6) !important;
+        border-radius: 4px;
+        transform: scale(1.05);
+      }
+
+      /* Nav item base style */
+      .nav-item {
+        position: relative;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        border-radius: 4px;
       }
 
       /* Mobile Menu Animation */
@@ -83,30 +234,55 @@
           transform: translateY(0);
         }
       }
+
+      /* Mobile menu items spacing */
+      #navLinks.mobile-menu-open li {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      #navLinks.mobile-menu-open .nav-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+      }
     </style>
   </head>
-  <body class="bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden">
+  <body
+    class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
+    style="
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(10, 10, 10, 0.7),
+          rgba(10, 10, 10, 0.3),
+          rgba(10, 10, 10, 0.7)
+        ),
+        url(/images/BG\ Dark.png);
+    "
+  >
     <header class="w-full flex flex-col relative z-50">
       <div
         class="header-bg flex justify-between items-center py-6 px-6 md:px-12 border-b border-[#5d4037]"
       >
-        <div class="hidden md:flex flex-1 justify-start">
+        <div class="hidden md:flex flex-1 justify-start animate-fadeIn">
           <img
             src="/images/UOIcon (1).png"
             alt="Logo"
-            class="h-12 md:h-20 w-auto opacity-90"
+            class="h-12 md:h-20 w-auto opacity-90 animate-float"
           />
         </div>
 
         <div class="flex-1 text-center">
           <h1
-            class="font-cinzel text-2xl sm:text-3xl md:text-5xl glowing-text uppercase leading-tight"
+            class="font-cinzel text-2xl sm:text-3xl md:text-5xl glowing-text uppercase leading-tight animate-fadeInDown"
           >
             Age of Sosaria
           </h1>
         </div>
 
-        <div class="flex-1 flex justify-end items-center gap-4">
+        <div class="flex-1 flex justify-end items-center gap-4 animate-fadeIn">
           <a
             href="#"
             class="relative text-[#B48446] px-8 py-2 hidden md:block border border-sosaria/50 bg-black/40 uppercase text-sm font-bold tracking-widest text-white transition-all duration-500 ease-in-out hover:text-[#ffd700] hover:border-[#ffd700]/60 hover:bg-[#ffd700]/10 hover:shadow-[0_0_20px_rgba(255,215,0,0.3),inset_0_0_10px_rgba(255,215,0,0.1)] hover:[text-shadow:0_0_10px_rgba(255,215,0,0.7)] hover:-translate-y-0.5"
@@ -129,31 +305,31 @@
         class="nav-bg min-h-[55px] flex justify-center items-center shadow-2xl relative border-b border-white/5"
       >
         <ul id="navLinks" class="hidden md:flex flex-row gap-8 items-center">
-          <li>
+          <li class="animate-fadeInUp delay-100">
             <a
               href="#"
-              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
               >Home</a
             >
           </li>
-          <li>
+          <li class="animate-fadeInUp delay-200">
             <a
               href="#"
-              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
               >Getting Started</a
             >
           </li>
-          <li>
+          <li class="animate-fadeInUp delay-300">
             <a
               href="#"
-              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
               >Rules</a
             >
           </li>
-          <li>
+          <li class="animate-fadeInUp delay-400">
             <a
               href="#"
-              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
               >Contact Us</a
             >
           </li>
@@ -170,7 +346,7 @@
       </nav>
     </header>
 
-    <!-- home page content hare  -->
+    <!-- home page content here  -->
     <main
       class="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
       style="
@@ -185,18 +361,20 @@
       "
     >
       <div>
-        <!--  fast section  -->
+        <!--  first section  -->
         <section class="w-full py-10 px-4 flex justify-center items-center">
           <div
-            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat"
+            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
             style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
             "
+            data-animate="scaleIn"
           >
             <div class="relative z-10 w-full text-center">
               <h2
-                class="gold-chisel-text text-3xl md:text-6xl mb-6 tracking-widest"
+                class="gold-chisel-text text-3xl md:text-6xl mb-6 tracking-widest animate-on-scroll"
+                data-animate="fadeInDown"
               >
                 Welcome to Age of Sosaria
               </h2>
@@ -204,29 +382,32 @@
               <div
                 class="medieval-text-style space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
               >
-                <p>
+                <p class="animate-on-scroll delay-200" data-animate="fadeInUp">
                   A custom Ultima Online shard focused on classic roots,
                   meaningful progression, and long-term play.
                 </p>
 
-                <p>
+                <p class="animate-on-scroll delay-300" data-animate="fadeInUp">
                   The lands of Sosaria are alive once more—a world shaped by
                   danger, discovery, and the choices of its players.
                 </p>
 
-                <p>
+                <p class="animate-on-scroll delay-400" data-animate="fadeInUp">
                   Whether you seek glory in battles, fortune in trade, or a
                   quiet life in the wilds; Your story begins here.
                 </p>
               </div>
 
-              <button class="mt-10 md:mt-14">
+              <button
+                class="mt-10 md:mt-14 animate-on-scroll delay-500"
+                data-animate="scaleIn"
+              >
                 <a
                   href="#"
                   class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
                 >
                   <div
-                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)]"
+                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
                     style="
                       background-image: url(&quot;/images/button-bg.png&quot;);
                       filter: sepia(0.2) brightness(1.2);
@@ -238,52 +419,72 @@
             </div>
           </div>
         </section>
+
         <!-- section two -->
         <section class="w-full py-10 px-4 flex justify-center items-center">
           <div
-            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat"
+            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
             style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
             "
+            data-animate="scaleIn"
           >
             <div class="relative z-10 w-full text-center">
-              <h2 class="gold-chisel-text text-3xl md:text-5xl mb-8">
+              <h2
+                class="gold-chisel-text text-3xl md:text-5xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
                 Why Play Age of Sosaria?
               </h2>
 
               <ul
                 class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left"
               >
-                <li class="flex items-start gap-3 gold-chisel-text">
+                <li
+                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-100"
+                  data-animate="slideInLeft"
+                >
                   <span class="mt-1">•</span>
                   <span class="gold-chisel-text text-white">
                     Classic inspired gameplay with custom systems
                   </span>
                 </li>
 
-                <li class="flex items-start gap-3 gold-chisel-text">
+                <li
+                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-200"
+                  data-animate="slideInLeft"
+                >
                   <span class="mt-1">•</span>
                   <span class="gold-chisel-text text-white">
                     Meaningful progression and long term characters
                   </span>
                 </li>
 
-                <li class="flex items-start gap-3 gold-chisel-text">
+                <li
+                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-300"
+                  data-animate="slideInLeft"
+                >
                   <span class="mt-1">•</span>
                   <span class="gold-chisel-text text-white">
                     Player driven economy
                   </span>
                 </li>
 
-                <li class="flex items-start gap-3 gold-chisel-text">
+                <li
+                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-400"
+                  data-animate="slideInLeft"
+                >
                   <span class="mt-1">•</span>
                   <span class="gold-chisel-text text-white">
                     Balanced carefully designed mechanics
                   </span>
                 </li>
 
-                <li class="flex items-start gap-3 gold-chisel-text">
+                <li
+                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-500"
+                  data-animate="slideInLeft"
+                >
                   <span class="mt-1">•</span>
                   <span class="gold-chisel-text text-white">
                     Active development and ongoing improvements
@@ -293,39 +494,72 @@
             </div>
           </div>
         </section>
+
         <!-- section Three -->
         <section class="w-full py-10 px-4 flex justify-center items-center">
           <div
-            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat"
+            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
             style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
             "
+            data-animate="scaleIn"
           >
             <div class="relative z-10 w-full text-center">
-              <h2 class="gold-chisel-text text-3xl md:text-5xl mb-8">
+              <h2
+                class="gold-chisel-text text-3xl md:text-5xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
                 World At A Glance
               </h2>
 
               <div
                 class="medieval-text-style grid grid-cols-1 md:grid-cols-2 gap-6 text-xl md:text-2xl text-left max-w-3xl mx-auto"
               >
-                <div class="space-y-2">
-                  <p>• Server Type: Custom Classic</p>
-                  <p>• Skill Cap: 725</p>
+                <div
+                  class="space-y-2 animate-on-scroll delay-200"
+                  data-animate="slideInLeft"
+                >
+                  <p
+                    class="transition-all duration-300 hover:translate-x-2 hover:text-[#ffd700]"
+                  >
+                    • Server Type: Custom Classic
+                  </p>
+                  <p
+                    class="transition-all duration-300 hover:translate-x-2 hover:text-[#ffd700]"
+                  >
+                    • Skill Cap: 725
+                  </p>
                 </div>
-                <div class="space-y-2">
-                  <p>• Skill Cap: 700</p>
-                  <p>• Housing: House Placement</p>
-                  <p>• Accounts: 3 accounts per player</p>
+                <div
+                  class="space-y-2 animate-on-scroll delay-300"
+                  data-animate="slideInRight"
+                >
+                  <p
+                    class="transition-all duration-300 hover:translate-x-2 hover:text-[#ffd700]"
+                  >
+                    • Stat Cap: 700
+                  </p>
+                  <p
+                    class="transition-all duration-300 hover:translate-x-2 hover:text-[#ffd700]"
+                  >
+                    • Housing: House Placement
+                  </p>
+                  <p
+                    class="transition-all duration-300 hover:translate-x-2 hover:text-[#ffd700]"
+                  >
+                    • Accounts: 3 accounts per player
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
+
       <footer
-        class="w-full py-10 px-4 mt-10 bg-[#1a110a]/90 border-t border-white/5"
+        class="w-full py-10 px-4 mt-10 bg-[#1a110a]/90 border-t border-white/5 animate-on-scroll"
+        data-animate="fadeInUp"
       >
         <div
           class="max-w-[1100px] mx-auto flex flex-col items-center justify-center space-y-6"
@@ -335,21 +569,21 @@
           >
             <a
               href="#"
-              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)]"
+              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
             >
               Downloads
             </a>
             <span class="text-[#864d22]/30 hidden md:inline">|</span>
             <a
               href="#"
-              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)]"
+              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
             >
               Privacy
             </a>
             <span class="text-[#864d22]/30 hidden md:inline">|</span>
             <a
               href="#"
-              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)]"
+              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
             >
               Rules
             </a>
@@ -358,9 +592,9 @@
           <div class="flex flex-col md:flex-row items-center gap-4 text-center">
             <div class="flex items-center gap-2">
               <img
-                src="/images//UOIcon (1).png"
+                src="/images/UOIcon (1).png"
                 alt=""
-                class="w-10 h-10 border-2 border-yellow-800 opacity-40"
+                class="w-10 h-10 border-2 border-yellow-800 opacity-40 transition-all duration-300 hover:opacity-70 hover:scale-110"
               />
               <span
                 class="font-cinzel font-semibold text-[#5a3119] [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
@@ -381,12 +615,12 @@
           >
             <a
               href="#"
-              class="text-[#864d22] hover:text-[#ffd700] transition-colors"
+              class="text-[#864d22] hover:text-[#ffd700] transition-all duration-300 hover:scale-110"
               >Privacy Policy</a
             >
             <a
               href="#"
-              class="text-[#864d22] hover:text-[#ffd700] transition-colors"
+              class="text-[#864d22] hover:text-[#ffd700] transition-all duration-300 hover:scale-110"
               >Terms of Service</a
             >
           </div>
