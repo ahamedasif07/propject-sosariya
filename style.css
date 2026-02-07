@@ -1,32 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap");
 
-/* হেডিং এবং প্যারাগ্রাফের জন্য কমন ব্রাউন ও আউটলাইন স্টাইল */
 .gold-chisel-text,
 .medieval-text-style p {
-  color: #5a3119 !important; /* ফিক্সড ব্রাউন কালার */
+  /* ১. পারফেক্ট ব্রাউন কালার */
+  color: #b48446 !important;
   font-family: "Cinzel", serif;
-  text-transform: uppercase;
   letter-spacing: 2px;
+  display: inline-block;
+  width: 100%;
 
-  /* ব্ল্যাক ফেইড ৩ডি আউটলাইন ইফেক্ট */
+  /* ২. ৩ডি ডেপথ এবং ব্ল্যাক ফেইড শ্যাডো (Advanced Multi-Layer) */
+  /* এখানে প্রথম ৪টি লেয়ার শার্প বর্ডার দেয়, পরেরগুলো ৩ডি লুক এবং শেষটি ফেইড শ্যাডো দেয় */
   text-shadow:
-    1px 1px 0px rgba(0, 0, 0, 0.9),
-    -1px -1px 0px rgba(0, 0, 0, 0.9),
-    1px -1px 0px rgba(0, 0, 0, 0.9),
-    -1px 1px 0px rgba(0, 0, 0, 0.9),
-    3px 4px 6px rgba(0, 0, 0, 0.8); /* ফেইড শ্যাডো */
+    1px 1px 0px #000,
+    2px 2px 0px #321b0b,
+    /* ৩ডি ব্রাউন ডেপথ লেয়ার */ 3px 3px 0px #000,
+    /* নিচের শার্প ব্ল্যাক আউটলাইন */ 4px 4px 8px rgba(0, 0, 0, 0.9),
+    /* মেইন ব্ল্যাক ফেইড (Deep Fade) */ 0px 0px 15px rgba(0, 0, 0, 0.5); /* অতিরিক্ত গ্লোয়িং শ্যাডো */
+
+  /* ৩. ফিল্টার ব্যবহার করে শ্যাডোটিকে আরও স্মুথ ও রিয়েলিস্টিক করা */
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
 }
 
-/* শুধুমাত্র হেডিংয়ের জন্য স্পেশাল ফন্ট সাইজ ও গ্রাফিক্স */
+/* শুধুমাত্র হেডিংয়ের জন্য ৯০০ ওয়েট */
 h2.gold-chisel-text {
   font-weight: 900;
-  display: inline-block;
+  text-transform: uppercase;
   line-height: 1.2;
 }
 
-/* প্যারাগ্রাফের ফন্ট ওয়েট একটু কমিয়ে সুন্দর করার জন্য */
+/* প্যারাগ্রাফের জন্য স্টাইল */
 .medieval-text-style p {
   font-weight: 700;
-  text-transform: none; /* প্যারাগ্রাফ নরমাল রাখার জন্য */
+  text-transform: none;
   margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
