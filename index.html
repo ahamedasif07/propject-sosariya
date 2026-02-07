@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
+    <link href="/style.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -189,35 +190,19 @@
           <div
             class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat"
             style="
-              background-image: url(/images//large-bg.png);
+              background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
             "
           >
             <div class="relative z-10 w-full text-center">
               <h2
-                class="font-cinzel text-3xl md:text-6xl mb-6 uppercase tracking-widest font-bold"
-                style="
-                  color: #3e2723;
-                  text-shadow:
-                    -1.5px -1.5px 0 #000,
-                    1.5px -1.5px 0 #000,
-                    -1.5px 1.5px 0 #000,
-                    1.5px 1.5px 0 #000;
-                "
+                class="gold-chisel-text text-3xl md:text-6xl mb-6 tracking-widest"
               >
                 Welcome to Age of Sosaria
               </h2>
 
               <div
-                class="space-y-4 md:space-y-6 font-medieval text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto italic font-bold"
-                style="
-                  color: #4e342e;
-                  text-shadow:
-                    -0.8px -0.8px 0 #000,
-                    0.8px -0.8px 0 #000,
-                    -0.8px 0.8px 0 #000,
-                    0.8px 0.8px 0 #000;
-                "
+                class="medieval-text-style space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto italic"
               >
                 <p>
                   A custom Ultima Online shard focused on classic roots,
@@ -229,7 +214,7 @@
                   danger, discovery, and the choices of its players.
                 </p>
 
-                <p class="text-[#2d1b18]">
+                <p>
                   Whether you seek glory in battles, fortune in trade, or a
                   quiet life in the wilds; Your story begins here.
                 </p>
@@ -243,7 +228,7 @@
                   <div
                     class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)]"
                     style="
-                      background-image: url(/images//button-bg.png);
+                      background-image: url(&quot;/images/button-bg.png&quot;);
                       filter: sepia(0.2) brightness(1.2);
                     "
                   ></div>

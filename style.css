@@ -1,147 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap");
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "MedievalSharp", cursive;
-  background: #0a0a0a; /* Dark background for contrast */
-  color: #fff;
-}
-
-/* Header Container */
-.site-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Main Header Section */
-.header-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 50px;
-  background: url("/images/header-bg.png") repeat;
-  border-bottom: 2px solid #5d4037;
-}
-
-.site-logo {
-  height: 70px;
-  width: auto;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-}
-
-.main-title {
+/* হেডিং এবং প্যারাগ্রাফের জন্য কমন ব্রাউন ও আউটলাইন স্টাইল */
+.gold-chisel-text,
+.medieval-text-style p {
+  color: #5a3119 !important; /* ফিক্সড ব্রাউন কালার */
   font-family: "Cinzel", serif;
-  font-size: 2.8rem;
-  color: #e0c097;
-  text-shadow: 3px 3px 6px #000;
-  letter-spacing: 5px;
-}
-
-/* Navigation Bar */
-.main-nav {
-  background: url("/images/nav-bg.png") repeat-x;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6);
-  z-index: 10;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-/* General Link Styling */
-.nav-links a {
-  text-decoration: none;
-  color: #e0c097;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 8px 18px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  transition: all 0.3s ease-in-out;
   text-transform: uppercase;
+  letter-spacing: 2px;
+
+  /* ব্ল্যাক ফেইড ৩ডি আউটলাইন ইফেক্ট */
+  text-shadow:
+    1px 1px 0px rgba(0, 0, 0, 0.9),
+    -1px -1px 0px rgba(0, 0, 0, 0.9),
+    1px -1px 0px rgba(0, 0, 0, 0.9),
+    -1px 1px 0px rgba(0, 0, 0, 0.9),
+    3px 4px 6px rgba(0, 0, 0, 0.8); /* ফেইড শ্যাডো */
+}
+
+/* শুধুমাত্র হেডিংয়ের জন্য স্পেশাল ফন্ট সাইজ ও গ্রাফিক্স */
+h2.gold-chisel-text {
+  font-weight: 900;
   display: inline-block;
+  line-height: 1.2;
 }
 
-/* ACTIVE LINK & DONATE BUTTON STYLE */
-.nav-links a.active-link,
-.nav-links a.donate-btn {
-  color: #ffd700 !important;
-  border: 1px solid #ffd700;
-  background: rgba(255, 215, 0, 0.1); /* Subtle gold tint */
-  box-shadow:
-    inset 0 0 10px rgba(255, 215, 0, 0.2),
-    0 0 15px rgba(255, 215, 0, 0.4);
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-}
-
-/* Hover Effect for regular links */
-.nav-links a:hover:not(.active-link):not(.donate-btn) {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(224, 192, 151, 0.3);
-}
-
-/* Special Hover for Donate/Active to make them pop */
-.nav-links a.donate-btn:hover,
-.nav-links a.active-link:hover {
-  background: #ffd700;
-  color: #000 !important;
-  box-shadow: 0 0 20px #ffd700;
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  background: transparent;
-  border: 1px solid #e0c097;
-  padding: 10px;
-  cursor: pointer;
-  display: none; /* Hidden on desktop */
-  flex-direction: column;
-  gap: 5px;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: #e0c097;
-}
-
-/* Responsive Logic */
-@media (max-width: 900px) {
-  .header-main {
-    padding: 15px 20px;
-  }
-  .main-title {
-    font-size: 1.8rem;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-  .nav-links {
-    display: none; /* Hide for mobile toggle logic */
-    flex-direction: column;
-    position: absolute;
-    top: 150px;
-    background: #1a1a1a;
-    width: 100%;
-    padding: 20px;
-  }
-  .nav-links.active {
-    display: flex;
-  }
+/* প্যারাগ্রাফের ফন্ট ওয়েট একটু কমিয়ে সুন্দর করার জন্য */
+.medieval-text-style p {
+  font-weight: 700;
+  text-transform: none; /* প্যারাগ্রাফ নরমাল রাখার জন্য */
+  margin-bottom: 1.5rem;
 }
