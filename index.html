@@ -4,45 +4,174 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age of Sosaria</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              medieval: ["MedievalSharp", "cursive"],
+              cinzel: ["Cinzel", "serif"],
+            },
+            colors: {
+              sosaria: "#B48446",
+              gold: "#ffd700",
+              darkBg: "#0a0a0a",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/css">
+      .header-bg {
+        background-image: url("/images/header-bg.png");
+        background-size: cover;
+        background-color: #1a1a1a;
+      }
+      .nav-bg {
+        background-image: url("/images/nav-bg.png");
+        background-color: #111;
+      }
+
+      /* Dark Glowing Text Effect */
+      .glowing-text {
+        color: #b48446;
+        text-shadow:
+          0 0 5px rgba(0, 0, 0, 1),
+          0 0 15px rgba(180, 132, 70, 0.6),
+          0 0 30px rgba(0, 0, 0, 0.9);
+        letter-spacing: 0.1em;
+      }
+
+      /* Active Link Style */
+      .nav-link-active {
+        color: #ffd700 !important;
+        border: 1px solid rgba(255, 215, 0, 0.4);
+        background: rgba(255, 215, 0, 0.08);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+      }
+
+      /* Mobile Menu Animation */
+      #navLinks.mobile-menu-open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        padding: 2rem 1.5rem;
+        border-bottom: 2px solid #b48446;
+        z-index: 100;
+        animation: slideDown 0.3s ease-out forwards;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="header-main">
-        <div class="header-left">
-          <img src="/images/logo.png" alt="Sosaria Logo" class="site-logo" />
+  <body class="bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden">
+    <header class="w-full flex flex-col relative z-50">
+      <div
+        class="header-bg flex justify-between items-center py-6 px-6 md:px-12 border-b border-[#5d4037]"
+      >
+        <div class="hidden md:flex flex-1 justify-start">
+          <img
+            src="/images/UOIcon (1).png"
+            alt="Logo"
+            class="h-12 md:h-20 w-auto opacity-90"
+          />
         </div>
 
-        <div class="header-center">
-          <h1 class="main-title">AGE OF SOSARIA</h1>
+        <div class="flex-1 text-center">
+          <h1
+            class="font-cinzel text-2xl sm:text-3xl md:text-5xl glowing-text uppercase leading-tight"
+          >
+            Age of Sosaria
+          </h1>
         </div>
 
-        <div class="header-right">
-          <button class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="flex-1 flex justify-end items-center gap-4">
+          <a
+            href="#"
+            class="px-8 py-2 hidden md:block border border-sosaria/50 text-sosaria hover:text-gold hover:border-gold transition-all bg-black/40 uppercase text-sm font-bold tracking-widest"
+          >
+            Donate
+          </a>
+
+          <button
+            id="menuToggle"
+            class="md:hidden flex flex-col gap-1.5 p-2 border border-sosaria/50 rounded hover:border-gold transition-colors"
+          >
+            <span class="w-6 h-0.5 bg-sosaria transition-all"></span>
+            <span class="w-6 h-0.5 bg-sosaria transition-all"></span>
+            <span class="w-6 h-0.5 bg-sosaria transition-all"></span>
           </button>
-          <div class="header-left">
-            <img src="/images/logo.png" alt="Sosaria Logo" class="site-logo" />
-          </div>
         </div>
       </div>
 
-      <nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="#" class="active-link">HOME</a></li>
-          <li><a href="#">GETTING STARTED</a></li>
-          <li><a href="#">RULES</a></li>
-          <li><a href="#">CONTACT US</a></li>
-          <li><a href="#" class="">DONATE</a></li>
+      <nav
+        class="nav-bg min-h-[55px] flex justify-center items-center shadow-2xl relative border-b border-white/5"
+      >
+        <ul id="navLinks" class="hidden md:flex flex-row gap-8 items-center">
+          <li>
+            <a
+              href="#"
+              class="nav-item nav-link-active uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-item text-sosaria hover:text-white uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              >Getting Started</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-item text-sosaria hover:text-white uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              >Rules</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-item text-sosaria hover:text-white uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all"
+              >Contact Us</a
+            >
+          </li>
+
+          <li class="md:hidden w-full pt-4">
+            <a
+              href="#"
+              class="text-gold uppercase text-sm font-bold py-3 px-5 border border-gold/40 block text-center bg-gold/5"
+            >
+              Donate Now
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
+
+    <main class="p-10 text-center">
+      <p class="text-sosaria/60 italic text-xl">Your journey begins here...</p>
+    </main>
 
     <script src="script.js"></script>
   </body>
