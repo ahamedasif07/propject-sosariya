@@ -8,6 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-item");
 
   /**
+   * ০. ডিফল্ট অবস্থায় প্রথম আইটেমকে (Home) একটিভ করা
+   */
+  if (navLinks.length > 0) {
+    // অন্য সব আইটেম থেকে একটিভ ক্লাস সরিয়ে শুধু প্রথমটিতে যোগ করা
+    navLinks.forEach((item) => item.classList.remove("nav-link-active"));
+    navLinks[0].classList.add("nav-link-active");
+  }
+
+  /**
    * Toggles the mobile menu
    */
   function toggleMenu() {
@@ -39,19 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Nav link click (Handle Active State & Close Menu)
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      // Remove active class from all
+      // প্রথমে সব আইটেম থেকে একটিভ ক্লাস রিমুভ করা
       navLinks.forEach((item) => item.classList.remove("nav-link-active"));
-      // Add to clicked one
+
+      // শুধুমাত্র যেটিতে ক্লিক করা হয়েছে সেটিতে একটিভ ক্লাস যোগ করা
       this.classList.add("nav-link-active");
 
-      // Close if on mobile
+      // মোবাইল মেনু হলে ক্লিক করার পর মেনু বন্ধ করে দেওয়া
       if (window.innerWidth < 768) {
         closeMenu();
       }
     });
   });
 
-  // 3. Click outside to close
+  // 3. Click outside to close (মোবাইলের জন্য)
   document.addEventListener("click", (e) => {
     if (
       !navLinksContainer.contains(e.target) &&
@@ -67,7 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinksContainer.classList.remove("hidden");
       navLinksContainer.classList.remove("mobile-menu-open");
     } else {
-      navLinksContainer.classList.add("hidden");
+      // উইন্ডো ছোট করলে ডিফল্টভাবে মেনু হাইড রাখা
+      if (!navLinksContainer.classList.contains("mobile-menu-open")) {
+        navLinksContainer.classList.add("hidden");
+      }
     }
   });
 });
