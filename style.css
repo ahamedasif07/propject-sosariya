@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .gold-chisel-text,
 .medieval-text-style p {
   /* ১. পারফেক্ট ব্রাউন কালার */
-  color: #943f14dc !important;
+  color: #af7f36 !important;
   font-family: "Cinzel", serif;
   letter-spacing: 2px;
   display: inline-block;
