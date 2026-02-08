@@ -3,7 +3,7 @@
 .gold-chisel-text,
 .medieval-text-style p {
   /* ১. পারফেক্ট ব্রাউন কালার */
-  color: #b48446 !important;
+  color: #943f14dc !important;
   font-family: "Cinzel", serif;
   letter-spacing: 2px;
   display: inline-block;
@@ -13,7 +13,7 @@
   /* এখানে প্রথম ৪টি লেয়ার শার্প বর্ডার দেয়, পরেরগুলো ৩ডি লুক এবং শেষটি ফেইড শ্যাডো দেয় */
   text-shadow:
     1px 1px 0px #000,
-    2px 2px 0px #321b0b,
+    2px 2px 0px #83461a00,
     3px 3px 0px #000,
     4px 4px 8px rgba(0, 0, 0, 0.9),
     0px 0px 15px rgba(0, 0, 0, 0.5);
