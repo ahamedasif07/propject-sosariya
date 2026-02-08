@@ -247,24 +247,27 @@
         text-align: center;
         padding: 1rem;
       }
+
+      /* header bg */
+      .header-bg {
+        /* এখানে আপনার ইমেজের লিঙ্কটি দিন */
+      }
     </style>
   </head>
   <body
-    class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
-    style="
-      background-image:
-        linear-gradient(
-          to bottom,
-          rgba(10, 10, 10, 0.7),
-          rgba(10, 10, 10, 0.3),
-          rgba(10, 10, 10, 0.7)
-        ),
-        url(/images/BG\ Dark.png);
-    "
+    class="relative min-h-screen w-full flex flex-col font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
   >
     <header class="w-full flex flex-col relative z-50">
       <div
         class="header-bg flex justify-between items-center py-6 px-6 md:px-12 border-b border-[#5d4037]"
+        style="
+          background-image: url(/images/image-heade-bg2.png);
+          background-size: 100% 100%; /* এটি ডানে-বামে টেনে ফুল করবে এবং উচ্চতাও ফিক্সড রাখবে */
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100%;
+          min-height: 120px; /* আপনার হেডারের উচ্চতা অনুযায়ী এটি অ্যাডজাস্ট করতে পারেন */
+        "
       >
         <div class="hidden md:flex flex-1 justify-start animate-fadeIn">
           <img
@@ -302,7 +305,15 @@
       </div>
 
       <nav
-        class="nav-bg min-h-[55px] flex justify-center items-center shadow-2xl relative border-b border-white/5"
+        class="nav-bg min-h-[35px] flex justify-center pt-4 pb-6 items-center shadow-2xl relative border-white/5"
+        style="
+          background-image: url(/images/nav-bg-two.png);
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100%;
+          height: 100%;
+        "
       >
         <ul id="navLinks" class="hidden md:flex flex-row gap-8 items-center">
           <li class="animate-fadeInUp delay-100">
@@ -332,15 +343,6 @@
               class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
               >Contact Us</a
             >
-          </li>
-
-          <li class="md:hidden w-full pt-4">
-            <a
-              href="#"
-              class="text-gold uppercase text-sm font-bold py-3 px-5 border border-gold/50 block text-center bg-gold/5"
-            >
-              Donate Now
-            </a>
           </li>
         </ul>
       </nav>
