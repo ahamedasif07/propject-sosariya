@@ -400,24 +400,41 @@
                 </p>
               </div>
 
-              <button
-                class="mt-10 md:mt-14 animate-on-scroll delay-500"
-                data-animate="scaleIn"
-              >
-                <a
-                  href="#"
-                  class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
+              <div class="relative inline-block mt-10 md:mt-14 group">
+                <div
+                  class="absolute inset-0 bg-black/60 blur-xl scale-95 rounded-full transition-all duration-500 group-hover:bg-black/80 group-hover:blur-2xl"
+                ></div>
+
+                <button
+                  class="relative z-10 animate-on-scroll"
+                  data-animate="scaleIn"
                 >
-                  <div
-                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
-                    style="
-                      background-image: url(&quot;/images/button-bg.png&quot;);
-                      filter: sepia(0.2) brightness(1.2);
-                    "
-                  ></div>
-                  <span class="relative z-10"> Download & Play Now </span>
-                </a>
-              </button>
+                  <a
+                    href="#"
+                    class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-white uppercase tracking-widest transition-all duration-500"
+                  >
+                    <div
+                      class="absolute inset-0 bg-cover bg-center border border-[#b48446] shadow-[0_0_15px_rgba(0,0,0,1)]"
+                      style="
+                        background-image: url(&quot;/images/button-bg.png&quot;);
+                        filter: brightness(
+                          0.9
+                        ); /* ইমেজটাকে একটু ডার্ক রাখার জন্য */
+                      "
+                    ></div>
+
+                    <div
+                      class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500"
+                    ></div>
+
+                    <span
+                      class="relative z-10 text-[#f0cc70] group-hover:text-[#f0cc80] transition-colors duration-500"
+                    >
+                      Download & Play Now
+                    </span>
+                  </a>
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -559,6 +576,7 @@
         </section>
       </div>
 
+      <!-- footer start -->
       <footer
         class="w-full py-10 px-4 mt-10 bg-[#1a110a]/90 border-t border-white/5 animate-on-scroll"
         data-animate="fadeInUp"
