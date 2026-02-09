@@ -20,9 +20,9 @@
   -webkit-text-stroke: 1px #3f2500;
   text-stroke: 2px #422700;
   text-shadow:
-    2px 0 black,
+    -1px 9px 20px #000000,
     -2px 0 black,
-    0 2px black,
+    0 2px #000000,
     0 -2px black,
     2px 2px black,
     -2px -2px black,
@@ -51,8 +51,8 @@
   -webkit-text-stroke: 1px #3f2500;
   text-stroke: 2px #422700;
   text-shadow:
-    2px 0 black,
-    -2px 0 black,
+    2px 0 30px #000000a6,
+    -2px 0 #000000,
     0 2px black,
     0 -2px black,
     2px 2px black,
