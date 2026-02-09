@@ -1,48 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap");
 
-.gold-chisel-text,
-.medieval-text-style p {
-  /* ১. পারফেক্ট ব্রাউন কালার */
-  color: #af7f36 !important;
-  font-family: "Rowdies", sans-serif;
-  letter-spacing: 2px;
-  display: inline-block;
-  width: 100%;
-
-  /* ২. ৩ডি ডেপথ এবং ব্ল্যাক ফেইড শ্যাডো (Advanced Multi-Layer) */
-  /* এখানে প্রথম ৪টি লেয়ার শার্প বর্ডার দেয়, পরেরগুলো ৩ডি লুক এবং শেষটি ফেইড শ্যাডো দেয় */
-  text-shadow:
-    1px 1px 0px #000,
-    2px 2px 0px #83461a00,
-    3px 3px 0px #000,
-    4px 4px 8px rgba(0, 0, 0, 0.9),
-    0px 0px 15px rgba(0, 0, 0, 0.5);
-
-  /* ৩. ফিল্টার ব্যবহার করে শ্যাডোটিকে আরও স্মুথ ও রিয়েলিস্টিক করা */
-  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-}
-
-/* শুধুমাত্র হেডিংয়ের জন্য ৯০০ ওয়েট */
-h2.gold-chisel-text {
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1.2;
-  position: relative;
-  z-index: 1;
-  text-shadow:
-    -3 2px 10px rgb(0 0 0),
-    0 4px 6px rgba(0, 0, 0, 0.8),
-    0 6px 9px rgba(0, 0, 0, 0.7);
-}
-
-/* প্যারাগ্রাফের জন্য স্টাইল */
-.medieval-text-style p {
-  font-weight: 700;
-  text-transform: none;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
 /* another css */
 
 .sectionHeading {
