@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sosaria</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="/images/UOIcon (1).png" />
@@ -17,7 +17,7 @@
           extend: {
             fontFamily: {
               medieval: ["MedievalSharp", "cursive"],
-              cinzel: ["Cinzel", "serif"],
+              Rowdies: ["Rowdies", "serif"],
             },
             colors: {
               sosaria: "#B48446",
@@ -30,14 +30,72 @@
     </script>
     <style type="text/css">
       /* Dark Glowing Text Effect */
+
       .glowing-text {
-        color: #b48446;
-        text-shadow:
-          0 0 5px rgba(0, 0, 0, 1),
-          0 0 15px rgba(180, 132, 70, 0.6),
-          0 0 30px rgba(0, 0, 0, 0.9);
-        letter-spacing: 0.1em;
-        animation: glow 3s ease-in-out infinite;
+        /* ১. আপনার দেওয়া কালার কোড দিয়ে মেটালিক গ্রেডিয়েন্ট */
+        background: linear-gradient(
+          to bottom,
+          #e9c48b 0%,
+          /* উপরে হাইলাইট */ #af7f36 45%,
+          /* আপনার মেইন কালার */ #7d5621 75%,
+          /* মিড শ্যাডো */ #2a1b0a 100% /* নিচের ডার্ক বেস */
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        /* ২. শার্প ডার্ক মেটাল স্ট্রোক */
+        -webkit-text-stroke: 1.2px #1a1005;
+
+        /* ৩. অতিরিক্ত গভীর এবং ঘন কালো শ্যাডো (Deep Black Shadow) */
+        filter: drop-shadow(0px 3px 0px #2d1f0d) /* ৩ডি লেয়ার */
+          drop-shadow(0px 8px 15px rgba(0, 0, 0, 1)) /* মেইন ব্ল্যাক শ্যাডো */
+          drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.9)); /* চারপাশে ছড়িয়ে থাকা ডার্কনেস */
+
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        display: inline-block;
+
+        /* ৪. মেটালিক গ্লো এনিমেশন */
+        animation: metallic-depth 4s ease-in-out infinite;
+      }
+
+      @keyframes metallic-depth {
+        0%,
+        100% {
+          filter: brightness(1) drop-shadow(0px 3px 0px #2d1f0d)
+            drop-shadow(0px 8px 15px rgba(0, 0, 0, 1));
+        }
+        50% {
+          filter: brightness(1.2) contrast(1.1) drop-shadow(0px 3px 0px #2d1f0d)
+            drop-shadow(0px 10px 25px rgba(0, 0, 0, 1));
+        }
+      }
+
+      @keyframes deep-metal-glow {
+        0%,
+        100% {
+          filter: brightness(1) drop-shadow(0px 4px 0px #1a1005)
+            drop-shadow(0px 8px 20px rgba(0, 0, 0, 1));
+        }
+        50% {
+          filter: brightness(1.15) contrast(1.1)
+            drop-shadow(0px 4px 0px #1a1005)
+            drop-shadow(0px 8px 30px rgba(0, 0, 0, 1));
+        }
+      }
+      @keyframes metal-shine {
+        0% {
+          filter: brightness(1) drop-shadow(0px 2px 0px #3d2a0d);
+        }
+        50% {
+          filter: brightness(1.2)
+            drop-shadow(0px 2px 5px rgba(180, 132, 70, 0.5));
+        }
+        100% {
+          filter: brightness(1) drop-shadow(0px 2px 0px #3d2a0d);
+        }
       }
 
       @keyframes glow {
@@ -279,7 +337,7 @@
 
         <div class="flex-1 text-center">
           <h1
-            class="font-cinzel text-2xl sm:text-3xl md:text-5xl glowing-text uppercase leading-tight animate-fadeInDown"
+            class="font-Rowdies text-2xl sm:text-3xl md:text-5xl glowing-text uppercase leading-tight animate-fadeInDown"
           >
             Age of Sosaria
           </h1>
@@ -375,14 +433,14 @@
           >
             <div class="relative z-10 w-full text-center">
               <h2
-                class="gold-chisel-text text-3xl md:text-6xl mb-6 tracking-widest animate-on-scroll"
+                class="sectionHeading text-3xl md:text-6xl mb-6 animate-on-scroll"
                 data-animate="fadeInDown"
               >
                 Welcome to Age of Sosaria
               </h2>
 
               <div
-                class="medieval-text-style space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+                class="paragraph space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
               >
                 <p class="animate-on-scroll delay-200" data-animate="fadeInUp">
                   A custom Ultima Online shard focused on classic roots,
@@ -411,7 +469,7 @@
                 >
                   <a
                     href="#"
-                    class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-white uppercase tracking-widest transition-all duration-500"
+                    class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-Rowdies text-lg md:text-xl font-bold text-white uppercase tracking-widest transition-all duration-500"
                   >
                     <div
                       class="absolute inset-0 bg-cover bg-center border border-[#b48446] shadow-[0_0_15px_rgba(0,0,0,1)]"
@@ -451,7 +509,7 @@
           >
             <div class="relative z-10 w-full text-center">
               <h2
-                class="gold-chisel-text text-3xl md:text-5xl mb-8 animate-on-scroll"
+                class="sectionHeading text-3xl md:text-5xl mb-8 animate-on-scroll"
                 data-animate="fadeInDown"
               >
                 Why Play Age of Sosaria?
@@ -461,51 +519,51 @@
                 class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left"
               >
                 <li
-                  class="flex items-center gap-2 gold-chisel-text animate-on-scroll delay-100"
+                  class="flex items-center gap-2 paragraph animate-on-scroll delay-100"
                   data-animate="slideInLeft"
                 >
                   <span class="mt-1">•</span>
-                  <span class="gold-chisel-text text-white">
+                  <span class="paragraph text-white">
                     Classic inspired gameplay with custom systems
                   </span>
                 </li>
 
                 <li
-                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-200"
+                  class="flex items-start gap-3 paragraph animate-on-scroll delay-200"
                   data-animate="slideInLeft"
                 >
                   <span class="mt-1">•</span>
-                  <span class="gold-chisel-text text-white">
+                  <span class="paragraph text-white">
                     Meaningful progression and long term characters
                   </span>
                 </li>
 
                 <li
-                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-300"
+                  class="flex items-start gap-3 paragraph animate-on-scroll delay-300"
                   data-animate="slideInLeft"
                 >
                   <span class="mt-1">•</span>
-                  <span class="gold-chisel-text text-white">
+                  <span class="paragraph text-white">
                     Player driven economy
                   </span>
                 </li>
 
                 <li
-                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-400"
+                  class="flex items-start gap-3 paragraph animate-on-scroll delay-400"
                   data-animate="slideInLeft"
                 >
                   <span class="mt-1">•</span>
-                  <span class="gold-chisel-text text-white">
+                  <span class="paragraph text-white">
                     Balanced carefully designed mechanics
                   </span>
                 </li>
 
                 <li
-                  class="flex items-start gap-3 gold-chisel-text animate-on-scroll delay-500"
+                  class="flex items-start gap-3 paragraph animate-on-scroll delay-500"
                   data-animate="slideInLeft"
                 >
                   <span class="mt-1">•</span>
-                  <span class="gold-chisel-text text-white">
+                  <span class="paragraph text-white">
                     Active development and ongoing improvements
                   </span>
                 </li>
@@ -526,14 +584,14 @@
           >
             <div class="relative z-10 w-full text-center">
               <h2
-                class="gold-chisel-text text-3xl md:text-5xl mb-8 animate-on-scroll"
+                class="paragraph text-3xl md:text-5xl mb-8 animate-on-scroll"
                 data-animate="fadeInDown"
               >
                 World At A Glance
               </h2>
 
               <div
-                class="medieval-text-style grid grid-cols-1 md:grid-cols-2 gap-6 text-xl md:text-2xl text-left max-w-3xl mx-auto"
+                class="paragraph grid grid-cols-1 md:grid-cols-2 gap-6 text-xl md:text-2xl text-left max-w-3xl mx-auto"
               >
                 <div
                   class="space-y-2 animate-on-scroll delay-200"
@@ -589,21 +647,21 @@
           >
             <a
               href="#"
-              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+              class="font-Rowdies font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
             >
               Downloads
             </a>
             <span class="text-[#864d22]/30 hidden md:inline">|</span>
             <a
               href="#"
-              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+              class="font-Rowdies font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
             >
               Privacy
             </a>
             <span class="text-[#864d22]/30 hidden md:inline">|</span>
             <a
               href="#"
-              class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+              class="font-Rowdies font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
             >
               Rules
             </a>
@@ -617,14 +675,14 @@
                 class="w-10 h-10 border-2 border-yellow-800 opacity-40 transition-all duration-300 hover:opacity-70 hover:scale-110"
               />
               <span
-                class="font-cinzel font-semibold text-[#5a3119] [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
+                class="font-Rowdies font-semibold text-[#5a3119] [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
               >
                 © Age of Sosaria
               </span>
             </div>
             <span class="text-[#5a3119]/50 hidden md:inline">•</span>
             <span
-              class="font-cinzel italic text-[#5a3119] [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
+              class="font-Rowdies italic text-[#5a3119] [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
             >
               Custom Ultima Online Shard
             </span>
